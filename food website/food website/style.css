@@ -1,0 +1,626 @@
+:root{
+    --red:#ff0000c9;         /* can use red color anywhere in this program by putting it in var(--red) */
+}
+
+*{
+    font-family: 'Roboto', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;           /* border-box retains a fixed height and width with padding being “inset” within the element. */
+    text-decoration: none;            /* By setting the text-decoration to none, to remove the underline and decoration from text */
+    outline: none; border:none;
+    text-transform: capitalize;
+    transition:all .2s linear;       /* linear - specifies a transition effect with the same speed from start to end */
+}
+
+h1, h3{
+    font-family: 'Oswald', sans-serif;
+}
+
+*::selection{                       /* This makes our selection of text of the specified format --> like red highlight on selecting a particular content */
+    background:var(--red);        /* Here, getting red color by using --red from root, which allows to target the highest-level “parent” element in the DOM  */
+    color:#fff;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;       /* it is used to clip the content and no scrolling mechanism is provided. */
+}
+
+body{
+    overflow-x: hidden;
+}
+
+
+/* -----for scrollbar---start----- */
+
+html::-webkit-scrollbar{           
+    width:1.4rem;                           /* changes the width of the scrollbar */
+}
+
+html::-webkit-scrollbar-track{
+    background:#333;                     /* changes the colour to black behind the scrollbar */
+}
+
+html::-webkit-scrollbar-thumb{
+    background:var(--red);                  /* changes the color of scrollbar to red */
+}
+
+/* -----for scrollbar---end-------- */
+
+section{
+    min-height: 100vh;
+    padding:1rem 10%;
+    padding-top: 8.5rem;
+}
+
+.btn{
+    font-size: 1.7rem;
+    padding:.7rem 4rem;
+    border-radius: 5rem;
+    margin-top: 1rem;
+    background:none;
+    color:#333;
+    cursor: pointer;             /* controls what the mouse cursor will look like when it is located over the element in which this property is set. */
+    border:.2rem solid var(--red);
+}
+
+.btn:hover{                      /* performs these properties when the cursors is hovered over the content */
+    background:var(--red);
+    color: white;
+}
+
+.heading{
+    text-align: center;
+    font-size: 4rem;
+    padding:0 .5rem;
+    color:#333;
+}
+
+.heading span{
+    color:var(--red);
+}
+
+header{
+    position: fixed;
+    top:0; left:0;
+    z-index: 1000;                                       /* defines the order of overlapping HTML elements. */
+    width:100%;
+    background:#fff;
+    padding:1.5rem 10%;
+    box-shadow: 0 .3rem 2rem rgba(0,0,0,.1);            /* Shows the shadow behind the content */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;           /* how the browser distributes space between and around content items along the main-axis of a flex */
+} 
+
+header .logo img{
+    height:5rem;
+}
+
+header .navbar ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+}
+
+header .navbar ul li{
+    margin-left: 3rem;
+}
+
+header .navbar ul li a{
+    font-size: 1.7rem;
+    color:#666;
+}
+
+header .navbar ul li a.active,
+header .navbar ul li a:hover{
+    color:var(--red);
+}
+
+header #menu-bar{
+    font-size: 3rem;
+    color:#666;
+    cursor: pointer;
+    display: none;
+}
+
+.home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;                    /* items wrapped onto multiple lines according to the container */
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.home::before,
+.home::after{
+    content:'';
+    position: absolute;
+    top:5rem; right:-6rem;
+    background:var(--red);
+    border-radius: 3rem;                 /* changes the radius of the border edges */
+    transform:rotate(-45deg);
+    height:40rem;
+    width:70rem;
+    z-index: -2;
+    animation: animte 1s linear 1;
+}
+
+@keyframes animte{
+    0%{
+        transform:rotate(45deg) translateY(-40rem);           /* controls the intermediate steps in a CSS animation sequence by defining styles for keyframes  */
+    }
+}
+
+.home::before{
+    top:-7rem;
+    background:#fff;
+    box-shadow: 0 1rem 4rem rgba(0,0,0,.1);
+    z-index: -1;
+}
+
+.home .image{
+    flex:1 1 39rem;
+}
+
+.home .image img{
+    width:100%;
+}
+
+.home .content{
+    flex:1 1 39rem;
+}
+
+.home .content h3{
+    color:#333;
+    font-size: 6rem;
+}
+
+.home .content p{
+    color:#666;
+    font-size: 2rem;
+    padding:1rem 0;
+}
+
+.about{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+.about .image{
+    flex:1 1 40rem;
+    height:50rem;
+    background:url("images/about-frame-img.png"), url("images/about-img.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: screen;          /* sets how an element's background images should blend with each other and with the element's background color */
+}
+
+.about .content{
+    flex:1 1 40rem;
+    padding:2rem;
+}
+
+.about .content h3{
+    font-size: 4rem;
+    color:#333;
+}
+
+.about .content p{
+    font-size: 1.6rem;
+    color:#666;
+    padding:1rem 0;
+}
+
+.menu .list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+    padding:1rem 0;
+    margin:2rem 0;
+    border-top: .3rem dashed rgba(0,0,0,.2);
+    border-bottom: .3rem dashed rgba(0,0,0,.2);
+}
+
+.menu .list .btn{
+    margin:1rem;
+}
+
+.menu .list .btn.active,
+.menu .list .btn:hover{
+    background:var(--red);
+    color:#fff;
+}
+
+.gallery{
+    background-image: url("images/about-frame-img.png");
+    background-position: center;           /* positions the content at center */
+    background-repeat: no-repeat;         /* shows the image only once as it is */
+    background-size: cover;               /* allows the image to covers the whole section available */
+}
+
+.menu .row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.menu .row .image{
+    margin:2rem;
+    padding:2rem;
+    flex:1 1 40rem;
+    border-radius: 1rem;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
+}
+
+.menu .row .image img{
+    width:100%;
+    object-fit: cover;          /* Cut off the sides of an image, preserving the aspect ratio, and also filling in the space */
+    border-radius: 1rem;
+}
+
+.menu .row .content{
+    flex:1 1 40rem;
+}
+
+.menu .row .content .info{
+    padding:1rem 0;
+}
+
+.menu .row .content .info h3{
+    display: flex;
+    align-items: center;
+    font-size: 2.4rem;
+    color:#333;
+}
+
+.menu .row .content .info h3 span{
+    padding-right: 1rem;
+    color:var(--red);
+}
+
+.menu .row .content .info p{
+    padding:1rem 0;
+    padding-left: 4.5rem;
+    font-size: 1.5rem;
+    color:#666;
+}
+
+.popular{
+    background:linear-gradient(rgba(255,255,255,.7),rgba(255,255,255,.7)), url("images/popular-bg.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.popular .box-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.popular .box-container .box{
+    background:#fff;
+    width:35rem;
+    padding:2rem;
+    margin:2rem;
+    border-radius: 1rem;
+    box-shadow: 0 .3rem .5rem rgba(0,0,0,.2);
+    text-align: center;
+}
+
+.popular .box-container .box img{
+    height:20rem;
+    width:100%;
+    object-fit: cover;
+}
+
+.popular .box-container .box h3{
+    color:#333;
+    font-size: 3rem;
+    font-weight: normal;
+}
+
+.popular .box-container .box .stars i{
+    color:var(--red);
+    font-size: 2rem;
+    padding:1rem .1rem;
+}
+
+.popular .box-container .box .price{
+    color:#666;
+    font-size: 2.5rem;
+}
+
+.popular .box-container .box:hover{
+    transform: scale(1.02);             /* defines a transformation that increases size a bit like a zoom in */
+    box-shadow: 0 1rem 1rem rgba(0,0,0,.2);
+}
+
+.gallery .box-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.gallery .box-container .box{
+    height:20rem;
+    width:30rem;
+    margin:2rem;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+}
+
+.gallery .box-container .box img{
+    height:100%;
+    width:100%;
+    object-fit: cover;
+}
+
+.gallery .box-container .box h3{
+    position: absolute;
+    top:100%; left:50%;
+    transform: translate(-50%, -50%);
+    color:#fff;
+    text-align: center;
+    font-size: 3rem;
+    opacity: 0;
+}
+
+.gallery .box-container .box:hover h3{
+    top:50%;
+    opacity: 1;
+    transition-delay: .2s;          /* tells by how much time the transition has delayed */
+}
+
+.gallery .box-container .box::before{
+    content: '';
+    position: absolute;
+    top:-100%; left:0;
+    height:100%;
+    width: 100%;
+    background:rgba(0,0,0,.7);
+    transition:.2s linear;
+}
+
+.gallery .box-container .box:hover::before{
+    top:0;
+}
+
+.contact{
+    background:url("images/contact-bg.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+
+}
+
+.contact .row{
+    display: flex;
+    background:#fff;
+    margin:2rem 0;
+    overflow: hidden;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.3);
+    border-radius: 1rem;
+}
+
+.contact .row .image{
+    flex:1 1 40%;
+}
+
+.contact .row .image img{
+    height:100%;
+    width:100%;
+    object-fit: cover;
+}
+
+.contact .row form{
+    flex:1 1 60%;
+    background:#fff;
+    padding:2rem;
+}
+
+.contact .row form .box{
+    padding:1rem;
+    margin:1rem 0;
+    font-size: 1.5rem;
+    color:#333;
+    text-transform: none;           /* can be used to make text appear in all-uppercase or all-lowercase, or with each word capitalized */
+    background:#f0f0f0;
+    width:100%;
+}
+
+.contact .row form .box::placeholder{
+    text-transform: capitalize;        /* make text appear with starting letter Capitalized */
+}
+
+.contact .row form .address{
+    resize: none;
+    height:15rem;
+}
+
+.footer{
+    background:#282727;
+    padding:1rem 7%;
+}
+
+.footer .box-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer .box-container .box{
+    flex:1 1 25rem;
+    margin:2rem;
+}
+
+.footer .box-container .box h3{
+    font-size: 2.5rem;
+    color:#fff;
+    padding:1rem 0;
+    font-weight: normal;
+}
+
+.footer .box-container .box p{
+    font-size: 1.7rem;
+    color:#eee;
+    padding:1rem 0;
+}
+
+.footer .box-container .box a{
+    font-size: 1.7rem;
+    color:#eee;
+    padding:1rem 0;
+    display: block;
+}
+
+.footer .box-container .box a:hover{
+    color:var(--red);
+}
+
+.footer .box-container .box p i{
+    padding-right: .5rem;
+    color:var(--red);
+}
+
+.footer .credit{
+    font-size: 2rem;
+    text-align: center;
+    border-top: .2rem solid rgba(255,255,255,.7);
+    padding:2rem 1rem;
+    font-weight: normal;
+    letter-spacing: .1rem;
+    color:#fff;
+}
+
+.footer .credit a{
+    color:var(--red);
+}
+
+.thali_image {
+    -webkit-filter: drop-shadow(10px 10px 10px #222 );      /* refers to the browser rendering engine used for Apple's Safari and Google's Chrome browsers */
+    filter: drop-shadow(10px 10px 10px #222);           /* applies graphical effects like blur or color shift to an element */
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* media queries  */
+
+/* CSS is applied on this part only if the media query matches the device on which the content is being used. */
+
+
+@media (max-width:991px){          /* laptops or smaller devices */
+
+    html{
+        font-size: 55%;
+    }
+
+    .home::before,
+    .home::after{
+        display: none;
+    }
+
+}
+
+@media (max-width:768px){           /* tablets or smaller devices */
+
+
+    header #menu-bar{
+        display: block;
+    }
+
+    header .navbar{
+        position: fixed;
+        top:8rem; left:0;
+        width:100%;
+        background:var(--red);
+        border-top: .2rem solid rgba(0,0,0,.1);
+        transform:scaleY(0);
+        transform-origin: top;      /* the point around which a transformation is applied ---> here applied at top position */
+        opacity: 0;
+    }
+
+    header .navbar ul{
+        flex-flow: column;      /* Flow of arrangement of items is along columns */
+        padding:2rem;
+    }
+
+    header .navbar ul li{
+        margin:1.5rem;
+        width: 100%;
+    }
+
+    header .navbar ul li a{
+        display: block;         /* the element is displayed as a block --> in this case iy is the navbar links */
+        color:#fff;
+        padding-left: 2rem;
+        border-left: .2rem solid #fff;
+        font-size: 2rem;
+    }
+
+    header .navbar ul li a:hover,
+    header .navbar ul li a.active{
+        color:#333;
+        border-color: #333;
+    }
+
+    .fa-times{
+        transform:rotate(180deg);       /* Rotates the item at 180 degrees clockwise */
+    }
+
+    header .navbar.nav-toggle{
+        transform:scaleY(1);           /* increases size of the item a bit along Y-axis */
+        opacity: 1;
+    }
+
+    .home .content{
+        text-align: center;
+    }
+
+    .home .content h3{
+        font-size: 4.5rem;
+    }
+
+    .contact .row .image{
+        display: none;
+    }
+
+}
+
+@media (max-width:500px){             /* moblie devices or smaller */
+
+    html{
+        font-size: 50%;
+    }
+
+    section{
+        padding:1rem 5%;
+        padding-top: 8.5rem;
+    }
+}

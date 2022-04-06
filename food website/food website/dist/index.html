@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Bill Generator In Javascript</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Just Practice</title>
+</head>
+<body>
+  <div class="pricelist">
+   <h1>dozen unit fruits not available please visit next time ....</h1>
+    <h1>FRUITS MENU</h1>
+    <table>
+      <tr>
+        <td>Strawberry</td>
+        <td>Apple</td>
+        <td>Grapes</td>
+        <td>Pomegranate</td>
+        <td>Guava</td>
+      </tr>
+      <tr>
+        <td>160 pkr/kg</td>
+        <td>200 pkr/kg</td>
+        <td>170 pkr/kg</td>
+        <td>220 pkr/kg</td>
+        <td>60 pkr/kg</td>
+      </tr>
+    </table>
+  </div>
+  <br>
+  <br>
+  <br>
+
+  <form class="bill1">
+    <select id="sf">
+  <option selected value = "Strawberry">Strawberry</option>
+  <option value = "Apple">Apple</option>
+  <option value = "Grapes">Grapes</option>
+  <option value = "Guava">Guava</option>
+  <option value = "Pomegranate">Pomegranate</option>
+</select>
+    <input type="text" id="entrybox" pattern="\d*" placeholder="Input Amount">&nbsp;<b>KG</b>&nbsp;&nbsp;
+    <input type="button" value="ADD T0 CART" class="mybutton" id="getme">
+  </form>
+  <br><br>
+  <textarea class="bill" cols="100" rows="12" id="writeme"></textarea>
+  <br>
+  <input type="submit" value="CLEAR TEXTAREA" class="mybutton bill3" id="clr">
+  <input type="submit" value="PAY BILL" class="mybutton bill2" id="out">
+  </body>
+
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,349 @@
+:root{
+  --red:#ff0000c9;
+}
+ 
+ body,select,input[type="text"],textarea{
+      font-weight: bold;
+      text-transform: uppercase;      /* converts all the text in uppercase */
+    }
+
+
+
+/* -----------------Navbar part----START------------------- */
+
+*{
+  font-family: 'Roboto', sans-serif;
+  margin:0; padding:0;
+  box-sizing: border-box;        /* border-box retains a fixed height and width with padding being “inset” within the element. */
+  text-decoration: none;        /* By setting the text-decoration to none, to remove the underline and decoration from text */
+  outline: none; border:none;
+  text-transform: capitalize;
+}
+
+h1, h3{
+  font-family: 'Oswald', sans-serif;
+}
+
+*::selection{                     /* This makes our selection of text of the specified format --> like red highlight on selecting a particular content */
+  background:var(--red);          /* Here, getting red color by using --red from root, which allows to target the highest-level “parent” element in the DOM  */
+  color:#fff;
+}
+
+html{
+  font-size: 62.5%;
+  overflow-x: hidden;             /* it is used to clip the content and no scrolling mechanism is provided. */
+}
+
+body{
+  overflow-x: hidden;
+  /* height:200rem; */
+}
+
+html::-webkit-scrollbar{            /* changes the width of the scrollbar */
+  width:1rem;
+}
+
+html::-webkit-scrollbar-track{      /* changes the colour to black behind the scrollbar */
+  background:#333;
+}
+
+html::-webkit-scrollbar-thumb{        /* changes the color of scrollbar to red */
+  background:var(--red);
+}
+
+section{
+  min-height: 100vh;
+  padding:1rem 10%;
+  padding-top: 8.5rem;
+}
+
+.btn{
+  font-size: 1.7rem;
+  padding:.7rem 4rem;
+  border-radius: 5rem;
+  margin-top: 1rem;
+  background:none;
+  color:#333;
+  cursor: pointer;            /* controls what the mouse cursor will look like when it is located over the element in which this property is set. */
+  border:.2rem solid var(--red);
+}
+
+.btn:hover{                 /* performs these properties when the cursors is hovered over the content */
+  background:var(--red);
+  color: white;
+}
+
+.heading{
+  text-align: center;
+  font-size: 4rem;
+  padding:0 .5rem;
+  color:#333;
+}
+
+.heading span{
+  color:var(--red);
+}
+
+header{                 
+  position: fixed;
+  top:0; left:0;
+  z-index: 1000;              /* defines the order of overlapping HTML elements. */
+  width:100%;
+  background:#fff;
+  padding:1.5rem 10%;
+  box-shadow: 0 .3rem 2rem rgba(0,0,0,.1);        /* Shows the shadow behind the content */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;              /* how the browser distributes space between and around content items along the main-axis of a flex */
+}
+
+header .logo img{
+  height:5rem;
+}
+
+header .navbar ul{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+}
+
+header .navbar ul li{
+  margin-left: 3.5rem;
+}
+
+header .navbar ul li a{
+  /* font-size: 1.7rem; */
+  font-size: 1.6rem;
+  color:#666;
+}
+
+header .navbar  li a.active,
+header .navbar ul li a:hover{               /* text color of the anchor tag changes from black to red */
+  color:var(--red);
+  text-decoration: none;
+  transition:all .2s linear;
+}
+
+header #menu-bar{
+  font-size: 3rem;
+  color:#666;
+  cursor: pointer;
+  display: none;
+}
+
+
+
+
+/*--------- media queries--------------  */
+
+/* CSS is applied on this part only if the media query matches the device on which the content is being used. */
+
+@media (max-width:991px){                 /* laptops or smaller devices */
+
+  html{
+      font-size: 55%;
+  }
+
+  .home::before,
+  .home::after{
+      display: none;
+  }
+
+}
+
+@media (max-width:768px){              /* tablets or smaller devices */
+
+
+  header #menu-bar{
+      display: block;
+  }
+
+  header .navbar{
+      position: fixed;
+      top:8rem; left:0;
+      width:100%;
+      background:#ff0000c9;
+      border-top: .2rem solid rgba(0,0,0,.1);
+      transform:scaleY(0);
+      transform-origin: top;          /* the point around which a transformation is applied ---> here applied at top position */
+      opacity: 0;
+  }
+
+  header .navbar ul{
+      flex-flow: column;               /* Flow of arrangement of items is along columns */
+      padding:2rem;
+  }
+
+  header .navbar ul li{
+      margin:1.5rem;
+      width: 100%;
+  }
+
+  header .navbar ul li a{
+      display: block;                 /* the element is displayed as a block --> in this case iy is the navbar links */
+      color:#fff;
+      padding-left: 2rem;
+      border-left: .2rem solid #fff;
+      font-size: 2rem;
+  }
+
+  header .navbar ul li a:hover,
+  header .navbar ul li a.active{
+      color:#333;
+      border-color: #333;
+  }
+
+  .fa-times{
+      transform:rotate(180deg);                  /* Rotates the item at 180 degrees clockwise */
+  }
+
+  header .navbar.nav-toggle{
+      transform:scaleY(1);                      /* increases size of the item a bit along Y-axis */
+      opacity: 1;
+  }
+
+  .home .content{
+      text-align: center;
+  }
+
+  .home .content h3{
+      font-size: 4.5rem;
+  }
+
+  .order {
+      display: none;
+  }
+
+}
+
+@media (max-width:500px){                     /* moblie devices or smaller */
+
+  html{
+      font-size: 50%;
+  }
+
+  section{
+      padding:1rem 5%;
+      padding-top: 8.5rem;
+  }
+}
+
+
+
+
+
+/* -----------------Navbar part-----END--------------------- */
+
+
+
+
+
+/* --------------- CSS CODE OF INDEX.HTML----START----------------------*/
+
+
+    table,
+    tr,
+    td {
+      /* border: 2px solid #F7CA3E; */
+      border: 2px solid #ff0000c9;
+      border-collapse: collapse;
+      padding: 5px;
+      margin-top: 30px;
+      margin: 0 auto;
+
+    }
+
+    body,.bill,.bill1,#sf,.mybutton,#entrybox{
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.3rem;
+    }
+
+    .pricelist {
+      text-align: center;
+    }
+
+    h1, h3 {
+      font-family: 'Oswald', sans-serif;
+  }
+
+    .mybutton {
+      
+      font-size :1.5rem;
+    padding:.7rem 4rem;
+    border-radius: 5rem;
+    margin-top: 1rem;
+    background:#ff0000c9;
+    color:white;
+    cursor: pointer;
+    border:1px solid #000000c9;
+    box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+    }
+
+  ::placeholder {                           /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgba(255, 255, 255, 0.747) ;
+    opacity: 5;                             /* Firefox */
+  }
+
+  .btn:hover{
+    background-color: white;
+    color:black;
+    transition-delay: .2s linear;         /* delay in transition for .2sec */
+  }
+
+    #entrybox {
+      width: 20%;
+      height: 43px;
+      margin-left: 5px;
+      border: 2px solid #b4b39d;
+      border-radius: 60px;
+      color: white;
+      background-color: #ff0000c9;
+      box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;           /* Shows the shadow behind the content */
+    }
+
+    .bill {
+      margin-left: 24%;
+      margin-right: 20%;
+      border-radius: 0.5rem;
+      box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+
+    }
+
+    .bill1 {
+      margin-left: 33%;
+      margin-right: 20%;
+
+    }
+
+    #sf {
+      height: 48px;
+      border: 2px solid #ff0000c9;
+      border-radius: 4px;
+      box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+    }
+
+    .bill2 {
+      margin-left: 48%;
+      position: absolute;
+      left:9.5rem;
+    }
+     .bill3 {
+      margin-left: 40%;
+      position: absolute;
+      left:1rem;
+    }
+
+    h1, h3{
+      font-family: 'Oswald', sans-serif;
+  }
+
+  span{
+    color:var(--red);
+    transition-delay: .4s linear; 
+}
+
+
+
+
+/* --------------- CSS CODE OF INDEX.HTML----ENDING----------------------*/
